@@ -31,5 +31,9 @@ function mousePressed(){
   mic.start();
   getAudioContext().resume();
 
-  birdsong.play();
+  if (!birdsong.isPlaying()) {
+     birdsong.play();
+  } else {
+    birdsong.pause();
+  }
 }
