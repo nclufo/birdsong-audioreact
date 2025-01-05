@@ -4,7 +4,7 @@ var birdsong;
 var volReact;
 
 function preload(){
-  birdsong = loadSound("birdsong audio-react.mp3");
+  birdsong = loadSound("birdsong audio-react.mp3", loaded);
 }
 
 function setup() {
@@ -17,7 +17,7 @@ function draw() {
   background(255);
 
   vol = mic.getLevel();
-  fill(vol*200);
+  fill(10, birdsong.currentTime()*5, 120);
   noStroke();
   ellipse(200, 200, vol*400 + 100);
   console.log(vol);
@@ -26,7 +26,12 @@ function draw() {
   //volReact = map(vol, 0, 1, 255, 0) //when surround vol increases, birdsong vol decreases
   birdsong.setVolume(volReact);
 
+  fill(10);
   text(birdsong.currentTime(),50,50);
+}
+
+function loaded(){
+  console.log("loaded");
 }
 
 function mousePressed(){
