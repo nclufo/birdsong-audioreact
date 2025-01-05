@@ -25,6 +25,8 @@ function draw() {
   volReact = map(vol, 0, 1, 0, 255); //when surround vol increases, birdsong vol increases
   //volReact = map(vol, 0, 1, 255, 0) //when surround vol increases, birdsong vol decreases
   birdsong.setVolume(volReact);
+
+  text(birdsong.currentTime(),50,50);
 }
 
 function mousePressed(){
